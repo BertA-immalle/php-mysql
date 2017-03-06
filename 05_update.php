@@ -11,9 +11,12 @@ try {
     $stmt = $conn->prepare("UPDATE messages SET inhoud='Testberichtje' WHERE id=4");
 
     // zorg dat de database ge-update wordt
+	$stmt->execute();
     // en getoond wordt hoeveel rijen aangepast zijn
+    // $aantal_aangepast = 0;
+
     
-    echo $aantal_aangepast . " rijen aangepast...";
+    echo $stmt -> rowCount() . " rijen aangepast...";
 }
 catch(PDOException $e)
 {
